@@ -1,0 +1,44 @@
+https://leetcode.com/problemset/all/?search=contains+duplicate+iii
+
+// O(n^2) time complexity
+
+
+class Solution {
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        int n = nums.length;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(Math.abs(1L* nums[i] - nums[j]) <= t && j - i <= k){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+
+
+// O(n log(k)) time complexity
+
+class Solution {
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+       
+        if(nums.length == 0 || k <= 0){
+            return false;
+        }
+        TreeSet<Long> set = new TreeSet();
+        for(int i=0;i<nums.length;i++){
+            Long floor = set.floor(1L * nums[i] + t);
+            Long cell = set.ceiling(1L * nums[i] - t);
+            if(floor != null && floor >= nums[i] || cell != null && cell <= nums[i]){
+                return true;
+            }
+            set.add(1L * nums[i]);
+            if(i >= k){
+                set.remove(1L * nums[i-k]);
+            }
+        }
+        return false;
+        
+    }
+}
