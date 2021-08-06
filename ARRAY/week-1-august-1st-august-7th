@@ -1,0 +1,38 @@
+// https://leetcode.com/explore/featured/card/august-leetcoding-challenge-2021/613/week-1-august-1st-august-7th/3836/
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int arr[] = new int[2];
+        // int c = 0;
+        // for(int i=0;i<nums.length-1;i++){
+        //     int num = search(nums, target-nums[i]);
+        //     if(nums[i] + nums[num] == target && num != i && num > 0){
+        //         arr[c] = i;
+        //         arr[c++] = num;
+        //     }
+        // }
+        for(int i=0;i<nums.length-1;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]+nums[j] == target){
+                    return new int[]{i, j};
+                }
+            }
+        }
+            
+        
+        return arr;
+        
+    }
+    public int search(int [] nums, int target){
+        int i = 0;
+        for(i=0;i<nums.length;i++){
+            if(nums[i] == target){
+                return i;
+            }
+        }
+        if(i == nums.length-1){
+            return -1;
+        }
+        return -1;
+    }
+}
