@@ -1,0 +1,24 @@
+https://leetcode.com/explore/learn/card/linked-list/219/classic-problems/1207/
+
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        // ArrayList arr = new ArrayList<>();
+        // if (head == null) return null;
+        // head.next = removeElements(head.next, val);
+        // return head.val == val ? head.next : head;
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+        dummy.next = head;
+        while (curr.next != null) {
+            if(curr.next.val == val){
+                curr.next = curr.next.next;
+            }
+            else {
+                curr = curr.next;
+            }
+        }
+        return dummy.next;
+        
+       
+    }
+}
