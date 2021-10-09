@@ -1,0 +1,47 @@
+//  https://leetcode.com/problems/next-greater-node-in-linked-list/
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public int[] nextLargerNodes(ListNode head) {
+        ListNode p = head;
+        
+        int c = 0;
+        ListNode l = head;
+        while(l != null){
+            l = l.next;
+            c++;
+        }
+        int a[] = new int[c];
+        int k = 0;
+        while(p != null){
+            int a1 = p.val;
+            ListNode Q = p;
+            while(Q != null){
+                if(Q.val > a1){
+                    break;
+                }
+                Q = Q.next;
+            }
+            
+            p = p.next;
+            
+            if(Q == null){
+                a[k++] = 0;
+            }
+            else{
+                a[k++] = Q.val;
+            }
+        }
+        
+        return a;
+    }
+}
