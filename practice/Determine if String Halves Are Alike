@@ -1,0 +1,73 @@
+// https://leetcode.com/problems/determine-if-string-halves-are-alike/ 
+
+
+class Solution {
+    public boolean halvesAreAlike(String s) {
+        int n = s.length()/2;
+        int c1 = 0;
+        int c2 = 0;
+        for(int i=0;i<n;i++){
+            if(s.charAt(i) == 'a'){
+                c1++;
+            }
+            if(s.charAt(i) == 'e'){
+                c1++;
+            }
+            if(s.charAt(i) == 'i'){
+                c1++;
+            }
+            if(s.charAt(i) == 'o'){
+                c1++;
+            }if(s.charAt(i) == 'u'){
+                c1++;
+            }if(s.charAt(i) == 'A'){
+                c1++;
+            }if(s.charAt(i) == 'E'){
+                c1++;
+            }
+            if(s.charAt(i) == 'I'){
+                c1++;
+            }
+            if(s.charAt(i) == 'O'){
+                c1++;
+            }
+            if(s.charAt(i) == 'U'){
+                c1++;
+            }
+            
+        }
+        for(int i=n;i<s.length();i++){
+            if(s.charAt(i) == 'a'){
+                c2++;
+            }
+            if(s.charAt(i) == 'e'){
+                c2++;
+            }
+            if(s.charAt(i) == 'i'){
+                c2++;
+            }
+            if(s.charAt(i) == 'o'){
+                c2++;
+            }if(s.charAt(i) == 'u'){
+                c2++;
+            }if(s.charAt(i) == 'A'){
+                c2++;
+            }if(s.charAt(i) == 'E'){
+                c2++;
+            }
+            if(s.charAt(i) == 'I'){
+                c2++;
+            }
+            if(s.charAt(i) == 'O'){
+                c2++;
+            }
+            if(s.charAt(i) == 'U'){
+                c2++;
+            }
+            
+        }
+        
+        return c1 == c2;
+        
+    }
+}
