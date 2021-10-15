@@ -1,0 +1,43 @@
+//  https://leetcode.com/problems/sort-colors/
+
+class Solution {
+    public void sortColors(int[] nums) {
+        // int c[] = new int[nums.length];
+       
+       int k = 3; 
+        int c[] = new int[3];
+        int b[] = new int[nums.length+1];
+        for(int i=0;i<k;i++){
+            c[i] = 0;
+        }
+        
+        for(int i=0;i<nums.length;i++){
+            c[nums[i]]++;
+        }
+       
+        for(int i=1;i<k;i++){
+            c[i] += c[i-1];
+        }
+        
+     
+        for (int i = k - 1; i > 0; i--)
+        {
+            c[i] = c[i - 1];
+        }
+        c[0] = 0;
+
+        int[] newArr = new int[nums.length];
+        for (int i = 0; i < nums.length; i++)
+        {
+            int num = nums[i];
+            newArr[c[num]] = num;
+            c[num]++;
+        }
+        for(int i=0;i<nums.length;i++){
+            nums[i] = newArr[i];
+        }
+      
+    }
+    
+
+}
