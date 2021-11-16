@@ -1,0 +1,25 @@
+//  https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/
+
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        LinkedList ll = new LinkedList();  
+        int m = 0;
+        for(int i=0;i<candies.length;i++){
+            if(candies[i] > m){
+                m = candies[i];
+            }
+        }
+        for(int i=0;i<candies.length;i++){
+            if(candies[i]+extraCandies >= m){
+                ll.add(true);
+            }
+            else{
+                ll.add(false);
+            }
+        }
+        
+        return ll;
+        
+    
+    }
+}
