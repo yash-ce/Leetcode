@@ -18,3 +18,23 @@ class Solution {
         return true;
     }
 }
+//  CPP code
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        int a[26];
+        for(int i=0;i<26;i++){
+            a[i] = 0;
+        }
+        for(int i=0;i<sentence.length();i++){
+            a[sentence[i]-'a']++;
+        }
+        bool flag = true;
+        for(int i=0;i<26;i++){
+            if(a[i] == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+};
