@@ -1,0 +1,21 @@
+//  https://leetcode.com/problems/reverse-prefix-of-word/
+
+class Solution:
+    def reversePrefix(self, word: str, ch: str) -> str:
+        c = 0
+        for i in range(len(word)):
+            if word[i] == ch:
+                c = i
+                break
+        # print(c)
+        if c == 0:
+            return word
+        else:
+            # print(word[:i])
+            r = word[:c+1]
+            # print(r)
+            r1 = r[::-1]
+            # print(r1)
+            return "".join(r1+word[c+1:])
+            
+        
