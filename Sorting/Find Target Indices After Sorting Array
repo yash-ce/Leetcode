@@ -1,0 +1,17 @@
+//  https://leetcode.com/problems/find-target-indices-after-sorting-array/
+
+class Solution {
+public:
+    vector<int> targetIndices(vector<int>& nums, int target) {
+        sort(nums.begin(), nums.end());
+        vector<int> v;
+        int i = 0, c = -1;
+        for(i=0;i<nums.size();i++){
+            if(nums[i] == target){
+                v.push_back(i);
+            }
+        }
+        
+        return v;
+    }
+};
