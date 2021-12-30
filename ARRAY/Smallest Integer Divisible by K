@@ -1,0 +1,18 @@
+https://leetcode.com/problems/smallest-integer-divisible-by-k/
+
+class Solution {
+    public int smallestRepunitDivByK(int k) {
+        if(k % 2 == 0 || k % 5 == 0){
+            return -1;
+        }
+        
+        int N = 1;
+        int len = 1;
+        
+        while(N % k != 0){
+            N = (N * 10 + 1) % k;
+            len++;
+        }
+        return len++;
+    }
+}
