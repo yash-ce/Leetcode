@@ -52,3 +52,54 @@ public:
     }
         
 };
+
+
+//DFS APPROACH
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int xDepth = 0;
+    private int yDepth = 0;
+    private TreeNode xParent = null;
+    private TreeNode yParent = null;
+    public boolean isCousins(TreeNode root, int x, int y) {
+        if(root == null){
+            return false;
+        }
+        isCousinsHelper(root, x, y, 0, null);
+        return (xDepth == yDepth) && (xParent != yParent);
+        
+    }
+    
+    void isCousinsHelper(TreeNode root, int x, int y, int Depth, TreeNode parent){
+        if(root == null){
+            return;
+        }
+        else if(root.val == x){
+            xParent = parent;
+            xDepth = Depth;
+        }
+        else if(root.val == y){
+            yParent = parent;
+            yDepth = Depth;
+        }
+        else{
+            isCousinsHelper(root.left, x, y, Depth+1, root);
+            isCousinsHelper(root.right, x, y, Depth+1, root);
+        }
+    }
+}
