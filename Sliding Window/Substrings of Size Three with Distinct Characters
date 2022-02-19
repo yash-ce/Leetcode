@@ -15,3 +15,41 @@ public:
         
     }
 };
+
+
+// Sliding pattern approach
+
+class Solution {
+public:
+    int countGoodSubstrings(string s) {
+        map<char, int> m;
+        int k = 3;
+        int left = 0;
+        int right = 0;
+        int count = 0;
+        while(right < s.size()){
+            m[s[right]]++;
+            
+            if(right-left+1 == k){
+                if(m.size() == k){
+                    count++;
+                }
+                
+                if(m[s[left]] == 1){
+                    m.erase(s[left]);
+                }
+                else{
+                    m[s[left]]--;
+                }
+                left++;
+
+            }
+            right++;
+            
+            
+        }
+        
+        return count;
+        
+    }
+};
