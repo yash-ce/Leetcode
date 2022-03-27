@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> findDiagonalOrder(vector<vector<int>>& nums) {
+        vector<pair<pair<int, int>, int>> a;
+        for(int  x = 0;x<nums.size();x++){
+            for(int y=0;y<nums[x].size();y++){
+                a.emplace_back(make_pair(x+y, y), nums[x][y]);
+            }
+        }
+        sort(a.begin(), a.end());
+        vector<int> ans;
+        for(auto &it : a){
+            ans.push_back(it.second);
+        }
+        return ans;
+    }
+};
